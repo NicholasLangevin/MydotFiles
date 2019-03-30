@@ -10,6 +10,10 @@ set wrap						"wrap text"
 set encoding=utf-8	"Set encoding"
 set hlsearch				"hightlight matching patern"
 set tabstop=2      	"Tabs lenght"
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
 set mouse=a					"Enable mouse (all mode)"
 set ignorecase 			"Do case insensitive mathcing"
 set smartcase 			"Try to do smart case"
