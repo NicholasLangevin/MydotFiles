@@ -10,7 +10,7 @@ My personal dotfiles
 
 ## Sofware 
 
-To maintain all my dotfiles, I use ![yadm](https://yadm.io/#) as my dot file manager.
+To maintain all my dotfiles, I use [yadm](https://yadm.io) as my dot file manager.
 
 ## How to install
 
