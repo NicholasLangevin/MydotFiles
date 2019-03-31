@@ -1,3 +1,9 @@
+[user]
+	name = Nicholas Langevin
+	email = Langevin.Nicholas@hotmail.com
+[core]
+	editor = open
+
 [alias]
 	publish = git push --set-upstream origin $(git rev-parse — abbrev-ref HEAD)
 	sync= !git fetch --all --prune && git rebase -p --autostash $1
