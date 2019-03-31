@@ -1,0 +1,11 @@
+[alias]
+	publish = git push --set-upstream origin $(git rev-parse — abbrev-ref HEAD)
+	sync= !git fetch --all --prune && git rebase -p --autostash $1
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+	
+	uncommit = !git reset --soft HEAD^
+	unstage = !git reset
+	upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
+	lg = log --graph --pretty=format:'%C(yellow)%d%Creset %C(cyan)%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --all
+
+
