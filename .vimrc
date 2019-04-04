@@ -18,3 +18,8 @@ set mouse=a					"Enable mouse (all mode)"
 set ignorecase 			"Do case insensitive mathcing"
 set smartcase 			"Try to do smart case"
 set paste 					"Set ctrl-c"
+
+"Change the cursor in Insertion mode"
+"It different setting if tmux"
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
