@@ -1,6 +1,7 @@
 alias config='/usr/bin/git --git-dir=/Users/nicholaslangevin/.cfg/ --work-tree=/Users/nicholaslangevin'
 
 alias ls='ls -F'
+alias tmux='tmux -2'
 
 #=========== Git Configuration ===============
 
