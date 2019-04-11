@@ -1,12 +1,11 @@
-# MydotFiles
-My personal dotfiles
+# My personal dotfiles
 
 ## Contents 
 
 - vim ready for R, python and Latex (in progress..)
 - git configuration 
 - R configuration 
-> bash configuration
+- bash configuration
 
 ## Sofware 
 

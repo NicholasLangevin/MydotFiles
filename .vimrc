@@ -1,3 +1,4 @@
+"Load pathogen"
 execute pathogen#infect()
 
 
@@ -10,7 +11,7 @@ filetype plugin indent on
 syntax enable
 colorscheme solarized
 
-"============== Parameters ==================
+"============== Parameters ===================
 
 set nu 							"Display line number"
 "set relativenumber 	"Relative number on" 
@@ -25,9 +26,11 @@ set ignorecase 			"Do case insensitive mathcing"
 set smartcase 			"Try to do smart case"
 set paste 					"Set ctrl-c"
 
-"============== Key remap ===================
+"============== Key remap ====================
 "To cancel de highlight"
 "nnoremap <esc> :noh<return><esc>
 "nnoremap <CR> :let @/ = ""<return><esc> "Bug: Execute the command when open window"
-
+let mapleader = ","
+"let mapleader = "\<space>"
+nnoremap <leader>b :NERDTreeToggle<return><esc>
 
