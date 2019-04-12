@@ -2,7 +2,6 @@
 execute pathogen#infect()
 
 
-
 "============== Filetype stuff ===============
 filetype plugin indent on
 "filetype indent on 
@@ -12,25 +11,63 @@ syntax enable
 colorscheme solarized
 
 "============== Parameters ===================
+"Display line number"
+set nu 							
 
-set nu 							"Display line number"
-"set relativenumber 	"Relative number on" 
-set showmatch 			"Show matching bracket"
-set autowrite 			"Automatically save before commands like :next and :make
-set wrap						"wrap text" 
-set encoding=utf-8	"Set encoding"
-set hlsearch				"hightlight matching patern"
-set tabstop=2      	"Tabs lenght"
-set mouse=a					"Enable mouse (all mode)"
-set ignorecase 			"Do case insensitive mathcing"
-set smartcase 			"Try to do smart case"
-set paste 					"Set ctrl-c"
+"Set relative number"
+"set relativenumber 
+
+"Show matching bracket"
+set showmatch 		
+
+"Automatically save before commands like :next and :make"
+set autowrite 			
+
+"Enable wraping text"
+set wrap						
+
+"Set encoding"
+set encoding=utf-8
+
+"Highlight matching patern"
+set hlsearch				
+
+"Search as I type character"
+set incsearch
+
+"Set tabs lenght"
+set tabstop=2
+
+"Enable mouse (all mode)"
+set mouse=a		
+
+"Do case insensitive mathching"
+set ignorecase 			
+
+"Try to do smart case"
+set smartcase 			
+
+"Enable ctrl-c in insert mode"
+set paste 				
+
+"Set the tabs to act like normal
+set autoindent
+set smarttab
+
+"Set backspace to act like normal"
+set backspace=indent,eol,start
+
+"Set autocomplete to scan file and included file"
+set complete-=i
 
 "============== Key remap ====================
-"To cancel de highlight"
-"nnoremap <esc> :noh<return><esc>
-"nnoremap <CR> :let @/ = ""<return><esc> "Bug: Execute the command when open window"
 let mapleader = ","
 "let mapleader = "\<space>"
-nnoremap <leader>b :NERDTreeToggle<return><esc>
+
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent><C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+	endi
+
+nnoremap <silent><leader>b :NERDTreeToggle<return><esc>
 
