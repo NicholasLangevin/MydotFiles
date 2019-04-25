@@ -7,10 +7,7 @@
 - R configuration 
 - bash configuration
 
-## Sofware 
-
-To maintain all my dotfiles, I use [yadm](https://yadm.io) as my dot file manager.
 
 ## How to install
 
-(in progress..)
+To copy my dotfiles into your home directory, run `./SynsDotFile.sh`.

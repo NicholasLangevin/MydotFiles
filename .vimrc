@@ -10,7 +10,7 @@ filetype plugin indent on
 syntax enable
 colorscheme solarized
 
-
+" Need powerline font: https://github.com/powerline/fonts.git"
 "Airline configuration"
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1"
