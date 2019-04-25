@@ -43,11 +43,18 @@ set hlsearch
 "Search as I type character"
 set incsearch
 
-"Set tabs lenght"
-set tabstop=2
+"Tabs are at proper location"
+set tabstop=4
 
-"Indent match tabs"
+"Indent is 4 space"
 set shiftwidth=4
+
+"Set the tabs to act like normal
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+set cindent
 
 "Enable mouse (all mode)"
 " set mouse=a		
@@ -61,9 +68,6 @@ set smartcase
 "Enable ctrl-c in insert mode"
 set paste 				
 
-"Set the tabs to act like normal
-set autoindent
-set smarttab
 
 "Set backspace to act like normal"
 set backspace=indent,eol,start
