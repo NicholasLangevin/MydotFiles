@@ -10,12 +10,20 @@ filetype plugin indent on
 syntax enable
 colorscheme solarized
 
+
+"Airline configuration"
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts = 1"
+let g:airline#extensions#tmuxline#enabled = 1
 "============== Parameters ===================
 "Display line number"
 set nu 							
 
 "Set relative number"
-"set relativenumber 
+" set relativenumber 
+
+"Dont show the mode (insert, normal,..)
+set noshowmode
 
 "Show matching bracket"
 set showmatch 		
@@ -38,8 +46,11 @@ set incsearch
 "Set tabs lenght"
 set tabstop=2
 
+"Indent match tabs"
+set shiftwidth=4
+
 "Enable mouse (all mode)"
-set mouse=a		
+" set mouse=a		
 
 "Do case insensitive mathching"
 set ignorecase 			
@@ -60,6 +71,10 @@ set backspace=indent,eol,start
 "Set autocomplete to scan file and included file"
 set complete-=i
 
+"Enable clipboard register to copy/paste from other program"
+"Need vim with +clipboard option" 
+" set clipboard=unnamed,unnamedplus
+
 "============== Key remap ====================
 let mapleader = ","
 "let mapleader = "\<space>"
@@ -67,7 +82,18 @@ let mapleader = ","
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent><C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-	endi
+endi
 
 nnoremap <silent><leader>b :NERDTreeToggle<return><esc>
+vmap <C-c> "+y
+
+
+
+"TODO: Copy/paste from external -> add +clipboard
+"TODO: Add some remap
+"TODO: Set up tmux workflow
+"TODO: Split .vimrc into keymaps file and parameter file.. then source it
+"TODO: Set up Nvim-R -> set up R workflow in vim
+"TODO: Bash file to autocompite Latex,Markdown,Sweave
+"TODO: Intall mupdf
 
