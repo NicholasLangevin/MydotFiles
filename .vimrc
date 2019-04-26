@@ -8,7 +8,9 @@ filetype plugin indent on
 
 
 syntax enable
-colorscheme solarized
+if has('unixmac')
+	colorscheme solarized
+endif
 
 " Need powerline font: https://github.com/powerline/fonts.git"
 "Airline configuration"
