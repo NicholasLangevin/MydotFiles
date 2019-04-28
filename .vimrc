@@ -8,13 +8,14 @@ filetype plugin indent on
 
 
 syntax enable
-if has('unixmac')
+if has('unix')
 	colorscheme solarized
 endif
   
 " Need powerline font: https://github.com/powerline/fonts.git"
 "Airline configuration"
 let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts = 1"
 let g:airline#extensions#tmuxline#enabled = 1
 "============== Parameters ===================
@@ -95,7 +96,7 @@ vmap <C-c> "+y
 
 no <Right> <Nop>
 no <Left> <Nop>
-no <up> ddkp
+no <up> ddkP
 no <down> ddp
 
 "TODO: Copy/paste from external -> add +clipboard
