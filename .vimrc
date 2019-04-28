@@ -11,7 +11,7 @@ syntax enable
 if has('unixmac')
 	colorscheme solarized
 endif
-
+  
 " Need powerline font: https://github.com/powerline/fonts.git"
 "Airline configuration"
 let g:airline_theme='solarized'
@@ -93,7 +93,10 @@ endi
 nnoremap <silent><leader>b :NERDTreeToggle<return><esc>
 vmap <C-c> "+y
 
-
+no <Right> <Nop>
+no <Left> <Nop>
+no <up> ddkp
+no <down> ddp
 
 "TODO: Copy/paste from external -> add +clipboard
 "TODO: Add some remap

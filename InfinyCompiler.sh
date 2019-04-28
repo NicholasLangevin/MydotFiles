@@ -38,7 +38,7 @@ while [[ $# > 0 ]]; do
 					echo A compile name is needed
 			else
 					isCompileName=true
-					compileName=$2	
+					compileName="$2.pdf"
 			fi
 			shift 
 			;;
@@ -64,7 +64,6 @@ done
 
 # Exist the file of no file to compile 
 if [[ $INCLUDE_FILE == false ]]; then 
-	echo "allo"
 	exit 
 fi
 
@@ -74,7 +73,8 @@ extention="${FILE##*.}"
 
 # If not compile name specifie, give the same name as FILE
 if [[ $isCompileName == false ]]; then 
-	compileName=$filename	
+	compileName="$filename.pdf"
+	echo compileName
 fi
 
 # Detect what is the file to compile
@@ -93,14 +93,14 @@ case "$extention" in
 		;;
 
 	md)
-		echo "Markdown file"
+		$(pandoc $FILE --latex-engine=pdflatex -o $filename)
 		;;
 
 	Rmd)
 		echo "Rmarkdown file"
 		;;
 
-	Rmd)
+	Rnw)
 		echo "Sweave file"
 		;;
 esac

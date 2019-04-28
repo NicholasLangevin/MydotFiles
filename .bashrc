@@ -3,6 +3,9 @@ alias config='/usr/bin/git --git-dir=/Users/nicholaslangevin/.cfg/ --work-tree=/
 alias ls='ls -F'
 alias tmux='tmux -2'
 
+# Enable vim inside bash
+set -o vi
+
 #=========== Git Configuration ===============
 
 # get current branch in git repo
