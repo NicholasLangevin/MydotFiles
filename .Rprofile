@@ -6,6 +6,18 @@ options(max.print = 100)
 # options(prompt="R> ")
 # auto.loads <-c("dplyr", "ggplot2")
 
+# Default repo
+local({r <- getOption("repos")
+       r["CRAN"] <- "http://cran.r-project.org" 
+       options(repos=r)
+})
+
+# Personal function to quit
+qq <- function(save="no"){
+    if( !(save %in% c("no", "yes")) ) return("Wrong argument")
+    q(save=save) 
+}
+
 .First <- function(){
 cat("-----------------------------------------------------
     Bienvenue Nicholas Langevin
