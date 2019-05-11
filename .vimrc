@@ -69,8 +69,8 @@ set ignorecase
 set smartcase 			
 
 "Enable ctrl-c in insert mode"
-set paste 				
-
+"set paste 				
+"TODO: add this in else don't have +clipboard
 
 "Set backspace to act like normal"
 set backspace=indent,eol,start
@@ -82,6 +82,9 @@ set complete-=i
 "Need vim with +clipboard option" 
 " set clipboard=unnamed,unnamedplus
 
+"Vim don't try to emulate the old vi"
+set nocompatible
+
 "============== Key remap ====================
 let mapleader = ","
 "let mapleader = "\<space>"
@@ -91,13 +94,33 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent><C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endi
 
-nnoremap <silent><leader>b :NERDTreeToggle<return><esc>
-vmap <C-c> "+y
+"Changing tabs"
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
 
+"Mapping for NERDTree"
+" let NERDTreeQuitOnOpen = 1
+nnoremap <silent><leader>b :NERDTreeToggle<CR>
+nnoremap <leader>f  <C-w>w
+
+"Add keys to copy-paste from external"
+if has('clipboard') 
+	vmap <C-y> "*y
+	nmap <C-p> "*p
+	nmap <C-P> "*P
+endif
+
+"Disable keys"
 no <Right> <Nop>
 no <Left> <Nop>
-no <up> ddkP
+no <up> ddkP 
 no <down> ddp
+
+"Add auto center"
+no <C-d> <C-d>zz
+no <C-u> <C-u>zz
 
 "TODO: Copy/paste from external -> add +clipboard
 "TODO: Add some remap
