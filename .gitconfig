@@ -2,9 +2,12 @@
 	name = Nicholas Langevin
 	email = Langevin.Nicholas@hotmail.com
 [core]
-	editor = open
+	editor = vim
 
 [alias]
+	# Init. & update all submodule and submodule inside
+	update =  git submodule update --init --recursive
+
 	publish = git push --set-upstream origin $(git rev-parse — abbrev-ref HEAD)
 	sync= !git fetch --all --prune && git rebase -p --autostash $1
 	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
