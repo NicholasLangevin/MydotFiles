@@ -105,4 +105,6 @@ case "$extention" in
 		;;
 esac
 
+echo "------------------------------------"
 echo "OUTPUT NAME FILE: $compileName"
+echo "------------------------------------"

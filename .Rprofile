@@ -12,7 +12,7 @@ local({r <- getOption("repos")
        options(repos=r)
 })
 
-# Personal function to quit
+# Personal function to quit with no save
 qq <- function(save="no"){
     if( !(save %in% c("no", "yes")) ) return("Wrong argument")
     q(save=save) 

@@ -16,3 +16,4 @@ for file in $(ls -a  ./) ; do
 
 done 
 
+echo "All file has been correctly copied"
