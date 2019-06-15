@@ -87,6 +87,15 @@ case "${extention}" in
 
 	tex)
         pdflatex ${FILE}
+        # Clean compile file
+        for name in $(ls ./ | grep -G ${filename}.); do
+            case ${name} in
+                "${filename}.tex"|"${filename}.pdf")
+                    continue
+                    ;;
+            esac
+            $(rm ./${name})
+        done
 		;;
 
 	c)
