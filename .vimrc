@@ -14,10 +14,19 @@ endif
   
 " Need powerline font: https://github.com/powerline/fonts.git"
 "Airline configuration"
+" let g:airline#extensions#tabline#enabled = 1"
+"let g:airline#extensions#branch#enabled = 1"
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
-let g:airline_powerline_fonts = 1"
-let g:airline#extensions#tmuxline#enabled = 1
+let g:airline_powerline_fonts = 1
+" let g:airline_section_b = airline#section#create(['branch'])
+" let g:airline_section_x = airline#section#create(['hunks'])
+" let g:airline_section_y = '%y'
+
+"Nvim-R configuration"
+let R_tmux_split = 1
+let R_vsplit = 1
+let R_assign = 0
 "============== Parameters ===================
 "Display line number"
 set nu 							
@@ -82,8 +91,11 @@ set complete-=i
 "Need vim with +clipboard option" 
 " set clipboard=unnamed,unnamedplus
 
-"Vim don't try to emulate the old vi"
+"Vim don't try to emulate the old vim
 set nocompatible
+
+"Display end of line"
+" set list listchars=eol:¬
 
 "============== Key remap ====================
 let mapleader = ","
@@ -122,11 +134,20 @@ no <down> ddp
 no <C-d> <C-d>zz
 no <C-u> <C-u>zz
 
-"TODO: Copy/paste from external -> add +clipboard
-"TODO: Add some remap
-"TODO: Set up tmux workflow
-"TODO: Split .vimrc into keymaps file and parameter file.. then source it
-"TODO: Set up Nvim-R -> set up R workflow in vim
-"TODO: Bash file to autocompite Latex,Markdown,Sweave
-"TODO: Intall mupdf
+"Add line without go in insert mode"
+nnoremap = o<esc>
+nnoremap + O<esc> 
 
+"Replace inner word with copy word"
+nnoremap riw ciw<esc>"0p
+
+function CompileFile(...)
+    write
+    if(a:0 > 0)
+        !~/MydotFiles/InfinyCompiler.sh % -n a:1
+    else
+        !~/MydotFiles/InfinyCompiler.sh % 
+    endif
+endfunction
+
+nnoremap <leader>c :call CompileFile()<CR>

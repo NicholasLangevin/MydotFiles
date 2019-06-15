@@ -12,33 +12,33 @@ print_help () {
 	echo "========================================="
 }
 
-INCLUDE_FILE=true
+includeFile=true
 isCompileName=false
 
 # The first argument is the file to compile 
-if [[ -z  "$1" ]]; then 
+if [[ -z  "${1}1" ]]; then 
 	echo A file name is needed as first argument
-	INCLUDE_FILE=false
-elif [[ ! -e "$1" ]]; then 
+	includeFile=false
+elif [[ ! -e "${1}" ]]; then 
 	echo First argument is not a existing file 
-	INCLUDE_FILE=false
+	includeFile=false
 else
-	FILE=$1
+	FILE=${1}
 	shift
 fi
 
 # Load the define user parameters
-while [[ $# > 0 ]]; do
+while [[ ${#} > 0 ]]; do
 
 	# Loop for optionnal argument
-	case "$1" in 
+	case "${1}" in 
 
 		-n|--name)
-			if [[ -z "$2" ]]; then 
+			if [[ -z "${2}" ]]; then 
 					echo A compile name is needed
 			else
 					isCompileName=true
-					compileName="$2.pdf"
+                    newCompileName=${2}
 			fi
 			shift 
 			;;
@@ -48,7 +48,7 @@ while [[ $# > 0 ]]; do
 			;;					
 
 		-*)
-			echo "Unknow options: $1"
+			echo "Unknow options: ${1}"
 			echo "Use --help to diplay all options"
 			exit
 			;;
@@ -63,7 +63,7 @@ while [[ $# > 0 ]]; do
 done 
 
 # Exist the file of no file to compile 
-if [[ $INCLUDE_FILE == false ]]; then 
+if [[ ${includeFile} == false ]]; then 
 	exit 
 fi
 
@@ -72,20 +72,21 @@ filename="${FILE%.*}"
 extention="${FILE##*.}"
 
 # If not compile name specifie, give the same name as FILE
-if [[ $isCompileName == false ]]; then 
-	compileName="$filename.pdf"
-	echo compileName
+if [[ ${isCompileName} == true ]]; then 
+	compileName=${newCompileName}
+else 
+    compileName=${filename} 
 fi
 
 # Detect what is the file to compile
-case "$extention" in
+case "${extention}" in
 
 	py)
 		echo "python file"
 		;;
 
 	tex)
-		echo "Latex file"
+        pdflatex ${FILE}
 		;;
 
 	c)
