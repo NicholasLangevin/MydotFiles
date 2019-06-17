@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/vim-buftabline"]
 	path = .vim/bundle/vim-buftabline
 	url = https://github.com/ap/vim-buftabline.git
+[submodule ".vim/bundle/clever-f.vim"]
+	path = .vim/bundle/clever-f.vim
+	url = https://github.com/rhysd/clever-f.vim.git
