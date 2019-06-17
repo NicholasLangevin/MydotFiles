@@ -2,10 +2,11 @@
 
 ## Contents 
 
-- vim ready for R, python and Latex (in progress..)
+- vim ready for R, python and Latex
 - git configuration 
 - R configuration 
 - bash configuration
+- tmux configuration
 
 
 ## How to install

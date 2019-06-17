@@ -77,10 +77,6 @@ set ignorecase
 "Try to do smart case"
 set smartcase 			
 
-"Enable ctrl-c in insert mode"
-"set paste 				
-"TODO: add this in else don't have +clipboard
-
 "Set backspace to act like normal"
 set backspace=indent,eol,start
 
@@ -151,3 +147,27 @@ function CompileFile(...)
 endfunction
 
 nnoremap <leader>c :call CompileFile()<CR>
+
+let g:buftabline_show = 1
+
+"Change tabs"
+nmap <leader>1 <Plug>BufTabLine.Go(1)
+nmap <leader>2 <Plug>BufTabLine.Go(2)
+nmap <leader>3 <Plug>BufTabLine.Go(3)
+nmap <leader>4 <Plug>BufTabLine.Go(4)
+nmap <leader>5 <Plug>BufTabLine.Go(5)
+nmap <leader>6 <Plug>BufTabLine.Go(6)
+nmap <leader>7 <Plug>BufTabLine.Go(7)
+nmap <leader>8 <Plug>BufTabLine.Go(8)
+nmap <leader>9 <Plug>BufTabLine.Go(9)
+nmap <leader>0 <Plug>BufTabLine.Go(10)
+
+
+function SavePos()
+    let g:row =  line(".")
+    let g:col  =  col(".")
+endfunction
+
+nnoremap <leader>s :call SavePos()<CR>
+nnoremap <leader>d :call cursor(g:row, g:col)<CR>
+
