@@ -2,6 +2,8 @@ alias config='/usr/bin/git --git-dir=/Users/nicholaslangevin/.cfg/ --work-tree=/
 
 alias ls='ls -F'
 alias tmux='tmux -2'
+alias G='cd ~/GitHub/'
+alias M='cd ~/MydotFiles/'
 
 # Enable vim inside bash
 set -o vi

@@ -1,5 +1,5 @@
-"Load pathogen"
 execute pathogen#infect()
+"Load pathogen"
 
 
 "============== Filetype stuff ===============
@@ -137,10 +137,11 @@ nnoremap + O<esc>
 "Replace inner word with copy word"
 nnoremap riw ciw<esc>"0p
 
-function CompileFile(...)
+function CompileFile()
     write
-    if(a:0 > 0)
-        !~/MydotFiles/InfinyCompiler.sh % -n a:1
+    "Set this variable to compile as different name"
+    if exists("g:compileName")
+        execute "!~/MydotFiles/InfinyCompiler.sh % -n" g:compileName
     else
         !~/MydotFiles/InfinyCompiler.sh % 
     endif
@@ -148,6 +149,7 @@ endfunction
 
 nnoremap <leader>c :call CompileFile()<CR>
 
+"Only show tabs when their more then one"
 let g:buftabline_show = 1
 
 "Change tabs"
@@ -162,12 +164,12 @@ nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
 
-
+"Save cursor position to jump back" 
 function SavePos()
     let g:row =  line(".")
     let g:col  =  col(".")
 endfunction
 
 nnoremap <leader>s :call SavePos()<CR>
-nnoremap <leader>d :call cursor(g:row, g:col)<CR>
+nnoremap <leader>d :call cursor(g:row, g:col)<CR>zz 
 
