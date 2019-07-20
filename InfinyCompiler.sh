@@ -82,7 +82,8 @@ fi
 case "${extention}" in
 
 	py)
-		echo "python file"
+        clear
+	    python ${FILE}
 		;;
 
 	tex)
@@ -103,7 +104,8 @@ case "${extention}" in
 		;;
 
 	md)
-		$(pandoc $FILE --latex-engine=pdflatex -o $filename)
+		# $(pandoc $FILE --latex-engine=pdflatex -o $filename)
+        pandoc ${FILE} -o ${filename}.pdf
 		;;
 
 	Rmd)
