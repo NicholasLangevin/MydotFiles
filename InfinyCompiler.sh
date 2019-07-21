@@ -79,10 +79,10 @@ else
 fi
 
 # Detect what is the file to compile
+clear
 case "${extention}" in
 
 	py)
-        clear
 	    python ${FILE}
 		;;
 
@@ -115,6 +115,9 @@ case "${extention}" in
 	Rnw)
 		echo "Sweave file"
 		;;
+    vim)
+        ~/MydotFiles/SynsDotFile.sh
+        ;;
 esac
 
 echo "------------------------------------"
