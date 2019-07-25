@@ -9,7 +9,8 @@ for file in $(ls -a  ~/MydotFiles) ; do
 			;;
 	esac
 
-	$(cp -r ~/MydotFiles/$file $INSTALLDIR)
+    $(rm -rf $INSTALLDIR/$file) # Update deleted files
+	$(cp -r $INSTALLDIR/MydotFiles/$file $INSTALLDIR)
 
 done 
 

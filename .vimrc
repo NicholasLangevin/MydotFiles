@@ -1,5 +1,5 @@
-execute pathogen#infect()
 "Load pathogen"
+execute pathogen#infect()
 
 
 "============== Filetype stuff ===============

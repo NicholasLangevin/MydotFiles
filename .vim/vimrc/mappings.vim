@@ -1,4 +1,4 @@
-"============== Custom Mappings ===============
+"============== custom mappings ===============
 
 "Set leader
 let mapleader = ","
@@ -18,7 +18,7 @@ vno <left> <Nop>
 vno <right> <Nop>
 vno <up> <Nop>
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
+"Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent><C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endi
@@ -34,20 +34,21 @@ endif
 nnoremap = o<esc>
 nnoremap + Ok<esc> 
 
-"Replace inner word with copy word"
+"Replace motion: delete and yank the last copy
 nnoremap riw ciw<esc>"0p
+vnoremap r c<esc>"0p
 
 "Change tabs"
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
+nnoremap <leader>1 <Plug>BufTabLine.Go(1)
+nnoremap <leader>2 <Plug>BufTabLine.Go(2)
+nnoremap <leader>3 <Plug>BufTabLine.Go(3)
+nnoremap <leader>4 <Plug>BufTabLine.Go(4)
+nnoremap <leader>5 <Plug>BufTabLine.Go(5)
+nnoremap <leader>6 <Plug>BufTabLine.Go(6)
+nnoremap <leader>7 <Plug>BufTabLine.Go(7)
+nnoremap <leader>8 <Plug>BufTabLine.Go(8)
+nnoremap <leader>9 <Plug>BufTabLine.Go(9)
+nnoremap <leader>0 <Plug>BufTabLine.Go(10)
 
 "Changing tabs"
 nnoremap <silent> [b :bprevious<CR>
@@ -58,11 +59,37 @@ nnoremap <silent> ]B :blast<CR>
 "Close current tab"
 nnoremap <leader>x :bd<CR>
 
+"Split new window
+" nnoremap <expr> <C-w>- ":split " .  input("File: ") . "<CR>"
+" nnoremap <C-w>| :vsplit getchar() 
+
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
-nmap <C-j> mz:m+<cr>`z
-nmap <C-k> mz:m-2<cr>`z
-vmap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" nmap <C-j> mz:m+<cr>`z
+" nmap <C-k> mz:m-2<cr>`z
+vnoremap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
+vnoremap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+"Enable/Disable spell check
+nnoremap <leader>z :setlocal spell!<cr>
+
+"Move cursor without exit insert mode
+inoremap <C-h> <esc>i
+inoremap <C-j> <esc>ja
+inoremap <C-k> <esc>ka
+inoremap <C-l> <esc>la
+
+"Center without exit insert mode 
+inoremap <C-z><C-z>  <esc>zza
+
+"quick pairs 
+inoremap <leader>' ''<ESC>i
+inoremap <leader>" ""<ESC>i
+inoremap <leader>( ()<ESC>i
+inoremap <leader>[ []<ESC>i
+inoremap <leader>{ {}<ESC>i
+" inoremap <silent>{<CR> {<ESC>b :call SavePos()<CR>o<ESC>ia}<ESC>hx g:col . is<ESC>
+
+
 
 "============== functions Mappings ===============
 
@@ -71,10 +98,7 @@ nnoremap <leader>c :call CompileFile()<CR>
 
 "Save cursor position and move to that position later
 nnoremap <leader>s :call SavePos()<CR>
-nnoremap <leader>d :call cursor(g:row, g:col)<CR>zz 
-
-"Enable/Desable spell check
-nnoremap <leader>z :call SpellCheck()<CR>
+nnoremap <leader>d :call cursor(g:row, g:col - 1)<CR>zz 
 
 "============== NERDTree Mappings ===============
 " let NERDTreeQuitOnOpen = 1
@@ -85,3 +109,7 @@ nnoremap <silent><leader>b :NERDTreeToggle<CR>
 
 "Focus in/out the files tree
 nnoremap <leader>f  <C-w>w
+
+"Copy dotfile to HOME and reload vimrc. Bug: hightlight when reaload..
+nnoremap <silent><leader>r :call CompileFile()<CR>:source $MYVIMRC<CR>:echo "vimrc reloaded"<CR>:nohl<CR>
+
