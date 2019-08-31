@@ -57,7 +57,7 @@ nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
 "Close current tab"
-nnoremap <leader>x :bd<CR>
+nnoremap <silent><leader>x :bd<CR>
 
 "Split new window
 " nnoremap <expr> <C-w>- ":split " .  input("File: ") . "<CR>"
@@ -89,6 +89,8 @@ inoremap <leader>[ []<ESC>i
 inoremap <leader>{ {}<ESC>i
 " inoremap <silent>{<CR> {<ESC>b :call SavePos()<CR>o<ESC>ia}<ESC>hx g:col . is<ESC>
 
+"Copy dotfile to HOME and reload vimrc. Bug: hightlight when reaload..
+nnoremap <silent><leader>r :call CompileFile()<CR>:source $MYVIMRC<CR>:echo "vimrc reloaded"<CR>:nohl<CR>
 
 
 "============== functions Mappings ===============
@@ -96,9 +98,6 @@ inoremap <leader>{ {}<ESC>i
 "Compile/run the file depending on the filetype
 nnoremap <leader>c :call CompileFile()<CR>
 
-"Save cursor position and move to that position later
-nnoremap <leader>s :call SavePos()<CR>
-nnoremap <leader>d :call cursor(g:row, g:col - 1)<CR>zz 
 
 "============== NERDTree Mappings ===============
 " let NERDTreeQuitOnOpen = 1
@@ -110,6 +109,17 @@ nnoremap <silent><leader>b :NERDTreeToggle<CR>
 "Focus in/out the files tree
 nnoremap <leader>f  <C-w>w
 
-"Copy dotfile to HOME and reload vimrc. Bug: hightlight when reaload..
-nnoremap <silent><leader>r :call CompileFile()<CR>:source $MYVIMRC<CR>:echo "vimrc reloaded"<CR>:nohl<CR>
+"============== Vimux Mappings ===============
 
+" Open tmux pane used by vimux
+nnoremap <leader>np :call VimuxOpenRunner()<CR>
+" Close tmux pane used by vimux 
+noremap <leader>cp :call VimuxCloseRunner()<CR> 
+
+nnoremap <leader>d :call VimuxCurrentSelection("n")<CR>
+vnoremap <leader>d :call VimuxCurrentSelection("v")<CR>
+
+" noremap <leader>d :call VimuxCurrentSelection("n")<CR>
+
+
+map <Leader>vp :VimuxPromptCommand<CR>
