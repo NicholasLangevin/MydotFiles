@@ -4,6 +4,10 @@ alias ls='ls -F'
 alias tmux='tmux -2'
 alias G='cd ~/GitHub/'
 alias M='cd ~/MydotFiles/'
+# alias use in my windows-sublinux machine
+if [[ $(uname -n) -eq "PC-Nicholas" ]]; then
+    alias nicholas="/mnt/c/Users/Nicholas"
+fi
 
 # Enable vim inside bash
 set -o vi
