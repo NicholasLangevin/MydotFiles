@@ -6,7 +6,7 @@ alias G='cd ~/GitHub/'
 alias M='cd ~/MydotFiles/'
 # alias use in my windows-sublinux machine
 if [[ $(uname -n) -eq "PC-Nicholas" ]]; then
-    alias nicholas="/mnt/c/Users/Nicholas"
+    alias nicholas="cd /mnt/c/Users/Nicholas"
 fi
 
 # Enable vim inside bash
