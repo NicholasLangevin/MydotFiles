@@ -1,6 +1,6 @@
 "============== Custom Functions ===============
 
-function CompileFile()
+function! CompileFile()
     write
     "Set this variable to compile as different name"
     if exists("g:compileName")
@@ -10,7 +10,7 @@ function CompileFile()
     endif
 endfunction
 
-function VimuxCurrentSelection(mode)
+function! VimuxCurrentSelection(mode)
     
     if a:mode == "n"
         normal! "xyy
@@ -18,11 +18,11 @@ function VimuxCurrentSelection(mode)
         normal j
     elseif a:mode == "v"
         normal! "xy
-        let l:startingPos = getpos("'<")
-        let l:endingPos   = getpos("'>")
-        let l:nSkipLines = l:endingPos[1] - l:startingPos[1] + 2
-        let l:currentSelection = getreg('x') 
-        execute "normal!" l:nSkipLines "j"
+        let l:startLine = line("'<")
+        let l:endLine   = line("'>")
+        let l:lines = getline(l:startLine, l:endLine)
+        let l:currentSelection = joint(l:lines)
+        " execute "normal!" l:nSkipLines "j"
     endif
 
     :call VimuxSendText(l:currentSelection)

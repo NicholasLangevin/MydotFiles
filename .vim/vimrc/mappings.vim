@@ -90,8 +90,8 @@ inoremap <leader>{ {}<ESC>i
 " inoremap <silent>{<CR> {<ESC>b :call SavePos()<CR>o<ESC>ia}<ESC>hx g:col . is<ESC>
 
 "Copy dotfile to HOME and reload vimrc. Bug: hightlight when reaload..
-nnoremap <silent><leader>r :call CompileFile()<CR>:source $MYVIMRC<CR>:echo "vimrc reloaded"<CR>:nohl<CR>
-
+" nnoremap <silent><leader>r :call CompileFile()<CR>:source $MYVIMRC<CR>:echo "vimrc reloaded"<CR>:nohl<CR>
+nnoremap <silent><leader>r :w<CR>:source $MYVIMRC<CR>:echo "vimrc reloaded"<CR>
 
 "============== functions Mappings ===============
 
