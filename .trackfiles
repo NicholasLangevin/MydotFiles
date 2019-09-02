@@ -1,0 +1,11 @@
+.vim/
+.vimrc
+.Rprofile
+.bash_profile
+.bashrc
+.profile
+.gitconfig
+.scimrc
+.tmux.conf
+.tmux.number.sh
+InfinyCompiler.sh

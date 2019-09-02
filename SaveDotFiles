@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Remove previous files. Usefull when files are deleted.. Simply cp whould not remove those files.
+for file in $(ls -a ~/MydotFiles); do
+
+    case ${file} in 
+        .|..|.git|.gitmodules|README.md|install|.trackfiles|SaveDotFiles)
+            continue
+            ;;
+    esac
+
+    $(rm -rf ${file})
+
+done
+
+while read file; do 
+
+    $(cp -r ~/${file} ~/MydotFiles)
+
+    if [[ $? -eq 0 ]]; then
+
+        echo "${file} as been copied!"
+
+    else
+
+        echo "ERROR: ${file} as not been copied!"
+
+    fi
+
+done < .trackfiles
