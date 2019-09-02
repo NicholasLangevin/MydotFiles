@@ -7,9 +7,6 @@
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/Nvim-R"]
-	path = .vim/bundle/Nvim-R
-	url = https://github.com/jalvesaq/Nvim-R.git
 [submodule ".vim/bundle/vim-buftabline"]
 	path = .vim/bundle/vim-buftabline
 	url = https://github.com/ap/vim-buftabline.git

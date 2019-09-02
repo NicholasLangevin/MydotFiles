@@ -25,9 +25,15 @@ endi
 
 "Add keys to copy-paste from external"
 if has('clipboard') 
-	vmap <C-y> "*y
-	nmap <C-p> "*p
-	nmap <C-P> "*P
+    if has('mac')
+        vmap <C-y> "*y
+        nmap <C-p> "*p
+        nmap <C-P> "*P
+    elseif has('unix')
+        vmap <C-y> ".y
+        nmap <C-p> ".p
+        nmap <C-P> ".P
+    endif
 endif
 
 "Add line without go in insert mode"
@@ -38,7 +44,7 @@ nnoremap + Ok<esc>
 nnoremap riw ciw<esc>"0p
 vnoremap r c<esc>"0p
 
-"Change tabs"
+"Go to a specific tab"
 nnoremap <leader>1 <Plug>BufTabLine.Go(1)
 nnoremap <leader>2 <Plug>BufTabLine.Go(2)
 nnoremap <leader>3 <Plug>BufTabLine.Go(3)
@@ -50,7 +56,7 @@ nnoremap <leader>8 <Plug>BufTabLine.Go(8)
 nnoremap <leader>9 <Plug>BufTabLine.Go(9)
 nnoremap <leader>0 <Plug>BufTabLine.Go(10)
 
-"Changing tabs"
+"Go to next tab"
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>

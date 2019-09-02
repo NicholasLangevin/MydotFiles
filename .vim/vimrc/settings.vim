@@ -65,6 +65,9 @@ set nocompatible
 
 "Dont show the mode (insert, normal,..)
 set noshowmode
+
+
+
 "============== Buftabline Settings ===============
 
 "Only show tabs when their more then one"
