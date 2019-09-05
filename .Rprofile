@@ -3,6 +3,7 @@
 # Email: Langevin.Nicholas@hotmail.com
 
 options(max.print = 100)
+options(stringAsFactors = FALSE)
 # options(prompt="R> ")
 # auto.loads <-c("dplyr", "ggplot2")
 
@@ -22,6 +23,6 @@ qq <- function(save="no"){
 cat("-----------------------------------------------------
     Bienvenue Nicholas Langevin
     Debut de la session:", date(),"
-    getwd:", getwd(), 
+    Version:", R.version.string,
     "\n-----------------------------------------------------\n") 
 }

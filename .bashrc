@@ -1,7 +1,11 @@
 alias config='/usr/bin/git --git-dir=/Users/nicholaslangevin/.cfg/ --work-tree=/Users/nicholaslangevin'
 
+# Linux command modified
+set-window-option mode-keys vi
 alias ls='ls -F'
 alias tmux='tmux -2'
+alias r='R --no-save --silent'
+alias r--save='R --silent'
 alias G='cd ~/GitHub/'
 alias M='cd ~/MydotFiles/'
 # alias use in my windows-sublinux machine
